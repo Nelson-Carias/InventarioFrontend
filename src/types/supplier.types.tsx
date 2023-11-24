@@ -14,7 +14,8 @@ export interface ICreateSupplier{
 }
 
 export interface IGetSuppliersResponse extends IBasicResponse{
-    suppliers: IGetSuppliers[]
+    //supplier igual que la ruta index de la api   
+    supplier: IGetSuppliers[]
 }
 
 export interface IBasicResponse {

@@ -8,7 +8,7 @@ export default function TableSupplier() {
 
   useEffect(() => {
     get_suppliers("", 0, "").then(({ data }) => {
-      setSuppliers(data.suppliers);
+      setSuppliers(data.supplier);
     });
   }, []);
 
