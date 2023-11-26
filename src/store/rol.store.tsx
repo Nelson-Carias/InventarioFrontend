@@ -1,32 +1,77 @@
-import { get_roles, create_rol} from './../service/rol.service';
-import { IGetRoles, ICreateRol } from './../types/rol.types';
-import {defineStore} from "pinia"
+import  {useState, useEffect} from 'react'
+import { create_rol, delete_rol, get_roles, update_rol  } from '../service/rol.service'
+import { IGetRoles } from '../types/rol.types'
 
-export const useRoleStore = defineStore('rol', {
-    state:()=>({
-        rol:[] as IGetRoles[],
-        rol_list:[] as IGetRoles[]
-    }),
-    actions:{
-        OnGetRoles(name:string){
-            get_roles(name)
-            .then(({data}) =>{
-                if(data.ok){
-                    this.rol = data.roles
-                }
+const useRoleStore = () => {
+    const [roles, setRoles] = useState<IGetRoles[]>([])
+    
+    useEffect(() =>{
+        OnGetRoles();
+    }, []);
+
+    const OnGetRoles = async () => {
+        try{
+            const data = await get_roles();
+            setRoles(data.roles);
+        }catch{
+            return({
+
             })
-        },
-
-        OnCreateRol(rol: ICreateRol){
-            const data = create_rol(rol)
-            if(data.then){
-                data.then(({data})=>{
-                    if(data.ok)
-                    alert("Rol created")
-                    this.OnGetRoles()
-                }                
-                )}
         }
+    };
 
+    const OnCreateRol = async (rol: string) =>{
+        
+        try {
+            const data = await create_rol(rol);
+            if (data.ok){
+                await OnGetRoles();
+            }
+        } catch {
+            return({
+
+            })
+        }
+    };
+
+    const OnUpdateRol = async (id: number, rol: string) =>{
+        try{
+            const data = await update_rol(id, rol);
+
+            if(data.ok){
+                await OnGetRoles();
+            }
+        }catch(error){
+            return({
+
+            })
+        }
+    };
+
+    const OnDeleteRol = async (id: number) => {
+        try{
+            const data = await delete_rol(id);
+            if (data.ok){
+                await OnGetRoles()
+            }
+        }catch{
+            return({
+
+            })
+        }
     }
-})
+
+
+
+
+    return{
+        roles, 
+        OnGetRoles, 
+        OnCreateRol, 
+        OnUpdateRol,
+        OnDeleteRol
+    }
+
+}
+
+export default useRoleStore

@@ -1,19 +1,11 @@
-import "./App.css";
-// import HolaMundo from "./HolaMundo";
-import TableRol from "./components/Rol/TableRol"
-import Layout from "./components/Layout";
+import "./index.css";
+import RolRoutes from "./plugins/rol.routes";
 
 
 
 function App(){
   return (
-    
-    <div className="App">
-      {/* <HolaMundo></HolaMundo> */}
-      <Layout></Layout>
-      <div className="p-5"><TableRol></TableRol></div>
-      
-    </div>
+    <RolRoutes></RolRoutes>
   )
 }
 
