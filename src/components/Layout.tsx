@@ -20,6 +20,8 @@ const NavMenu = (props:Props) => {
     { name: "Productos", link: "/product", icon: TbReportAnalytics},
     { name: "Ventas", link: "/", icon: FiShoppingCart },
     { name: "Detalle Ventas", link: "/", icon: TbReportAnalytics },
+    { name: "Cliente", link: "/cliente", icon: FiShoppingCart },
+
   ];
   const [open, setOpen] = useState(true);
   return (

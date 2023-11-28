@@ -2,7 +2,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import RolePage from "../components/Rol/TableRol"
 import HomeView from "../views/HomeView"
 import SupplierPage from "../components/Supplier/TableSupplier";
-import TableSupplier from "../components/Supplier/TableSupplier";
+//import TableSupplier from "../components/Supplier/TableSupplier";
 // import ProductView from "../views/ProductView"
 
 function RolRoutes(){

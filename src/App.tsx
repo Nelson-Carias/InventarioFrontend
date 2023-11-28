@@ -1,11 +1,13 @@
 import "./index.css";
 import RolRoutes from "./plugins/rol.routes";
+import SupplierRoutes from './plugins/supplier.routes'
 
 
 
 function App(){
   return (
-    <RolRoutes></RolRoutes>
+  //  <RolRoutes></RolRoutes>
+    <SupplierRoutes></SupplierRoutes>
   )
 }
 

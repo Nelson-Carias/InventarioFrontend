@@ -29,7 +29,18 @@ const UpdateSupplier = ({supplierId, supplierNameUpdate, supplierContact, suppli
        
     }
     const handleInputChangeC = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setNewSupplierContact(e.target.value)
+      const inputContact = e.target.value;
+      const numericValue = parseInt(inputContact, 10);
+    
+      if (!isNaN(numericValue)) {
+        setNewSupplierContact(numericValue);
+      } else {
+        console.error("La entrada no es un número válido");
+      }
+     
+     
+      //setNewSupplierContact(e.target.value)
+     
   }
   const handleInputChangeD = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewSupplierDirection(e.target.value)

@@ -6,7 +6,7 @@ export default function HomeView(){
         <>
         <NavMenu>
         <>
-        <p>Bienvenidhhho</p>
+        <p>Bienvenido</p>
         </>
     </NavMenu>
     </>
