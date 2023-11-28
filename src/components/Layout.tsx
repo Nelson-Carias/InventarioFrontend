@@ -13,13 +13,13 @@ interface Props{
 
 const NavMenu = (props:Props) => {
   const menus = [
-    { name: "Inicio", link: "/", icon: FaHome },
-    { name: "Usuarios", link: "/", icon: FaUser },
+    { name: "Inicio", link: "/home", icon: FaHome },
+    { name: "Usuarios", link: "/usuario", icon: FaUser },
     { name: "Roles", link: "/rol", icon: PiUserSwitch },
     { name: "Proveedores", link: "/supplier", icon: FiMessageSquare },
     { name: "Productos", link: "/product", icon: TbReportAnalytics},
-    { name: "Ventas", link: "/", icon: FiShoppingCart },
-    { name: "Detalle Ventas", link: "/", icon: TbReportAnalytics },
+    { name: "Ventas", link: "/venta", icon: FiShoppingCart },
+    { name: "Detalle Ventas", link: "/detalle", icon: TbReportAnalytics },
     { name: "Cliente", link: "/cliente", icon: FiShoppingCart },
 
   ];
