@@ -1,14 +1,14 @@
 export interface IGetSuppliers {
     id: number
     name: string
-    contact: number
+    contact: string
     direction: string
     state: boolean
 }
 
 export interface ICreateSupplier{
     name: string
-    contact: number
+    contact: string
     direction: string
 
 }

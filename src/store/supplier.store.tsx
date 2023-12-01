@@ -54,7 +54,7 @@ const useSupplierStore = () => {
         }
     };
 
-    const OnCreateSupplier = async (name: string, contact:number, direction:string) =>{
+    const OnCreateSupplier = async (name: string, contact:string, direction:string) =>{
         
         try {
             const data = await create_supplier(name, contact, direction);
@@ -68,7 +68,7 @@ const useSupplierStore = () => {
         }
     };
 
-    const OnUpdateSupplier = async (id: number, name: string, contact:number, direction:string) =>{
+    const OnUpdateSupplier = async (id: number, name: string, contact:string, direction:string) =>{
         try{
             const data = await update_supplier(id, name, contact, direction);
 

@@ -3,7 +3,7 @@ import useSupplierStore from "../../store/supplier.store";
 import { FaRegEdit } from "react-icons/fa";
 
 
-const UpdateSupplier = ({supplierId, supplierNameUpdate, supplierContact, supplierDirection}: {supplierId: number, supplierNameUpdate: string, supplierContact:number, supplierDirection:string}) => {
+const UpdateSupplier = ({supplierId, supplierNameUpdate, supplierContact, supplierDirection}: {supplierId: number, supplierNameUpdate: string, supplierContact:string, supplierDirection:string}) => {
     const [showModal, setShowModal] = useState(false);
     const [newSupplierName, setNewSupplierName] = useState(supplierNameUpdate);
     const [newSupplierContact, setNewSupplierContact] = useState(supplierContact);
@@ -29,18 +29,19 @@ const UpdateSupplier = ({supplierId, supplierNameUpdate, supplierContact, suppli
        
     }
     const handleInputChangeC = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const inputContact = e.target.value;
-      const numericValue = parseInt(inputContact, 10);
+      // const inputContact = e.target.value;
+      // const numericValue = parseInt(inputContact, 10);
     
-      if (!isNaN(numericValue)) {
-        setNewSupplierContact(numericValue);
-      } else {
-        console.error("La entrada no es un número válido");
-      }
+      // if (!isNaN(numericValue)) {
+      //   setNewSupplierContact(numericValue);
+      // } else {
+      //   console.error("La entrada no es un número válido");
+      // }
      
      
       //setNewSupplierContact(e.target.value)
-     
+      setNewSupplierContact(e.target.value)
+
   }
   const handleInputChangeD = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewSupplierDirection(e.target.value)
