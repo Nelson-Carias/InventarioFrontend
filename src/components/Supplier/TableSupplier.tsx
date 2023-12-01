@@ -95,10 +95,10 @@ export default function TableSupplier() {
     {supplierToDelete && (
       <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
         <div className="bg-white p-4 rounded-lg shadow-lg">
-          <p>¿Estas seguro que quieres eliminar el rol "{supplierToDelete.supplierName} {supplierToDelete.supplierContact} {supplierToDelete.supplierDirection}"?</p>
+          <p>¿Estas seguro que quieres eliminar El Proveedor "{supplierToDelete.supplierName} {supplierToDelete.supplierContact} {supplierToDelete.supplierDirection}"?</p>
           <div className="mt-4 flex justify-center">
             <button onClick={ConfirmDelete} className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full">
-                Si eliminar
+                 eliminar
             </button>
             <button onClick={cancelToDelete} className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded-full ml-4">
                 Cancelar
