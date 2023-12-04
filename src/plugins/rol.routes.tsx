@@ -3,7 +3,12 @@ import RolePage from "../components/Rol/TableRol"
 import HomeView from "../views/HomeView"
 import SupplierPage from "../components/Supplier/TableSupplier";
 import CustomerPage from "../components/Customer/TableCostumer"
+
 import ProductView from "../views/ProductView"
+
+import UserPage from "../components/User/TableUser"
+import SalePage from "../components/Sale/TableSale"
+// import ProductView from "../views/ProductView"
 import Login from "../components/Login/Login"
 
 function RolRoutes(){
@@ -16,6 +21,10 @@ function RolRoutes(){
                 <Route path="/supplier" element={<SupplierPage></SupplierPage>}></Route>
                 <Route path="/customer" element={<CustomerPage></CustomerPage>}></Route>
                 <Route path="/product" element={<ProductView></ProductView>}></Route>
+                <Route path="/user" element={<UserPage></UserPage>}></Route>
+                <Route path="/sale" element={<SalePage></SalePage>}></Route>
+
+                {/* <Route path="/product" element={<ProductView></ProductView>}></Route> */}
             </Routes>
          </BrowserRouter>
     )

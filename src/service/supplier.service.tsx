@@ -24,13 +24,21 @@ export const create_supplier = async (name: string, contact:string, direction:st
     return data
 }
 export const update_supplier = async (id: number, name: string, contact:string, direction:string) => {
-    const {data} = await axios.put<{ok:boolean, msg: string}>(API_URL + "/supplier/" + id, {name, contact, direction },)
+    const {data} = await axios.put<{ok:boolean, msg: string}>(API_URL + "/supplier/" + id, {name, contact, direction },{
+        headers:{
+            Authorization: "Bearer " + GetToken()
+        }
+    })
 
     return data
 }
 
 export const delete_supplier = async (id: number) => {
-    const {data} = await axios.delete<{ok: boolean, msg:string}>(API_URL + "/supplier/" + id,)
+    const {data} = await axios.delete<{ok: boolean, msg:string}>(API_URL + "/supplier/" + id,{
+        headers:{
+            Authorization: "Bearer " + GetToken()
+        }
+    })
 
     return data
 }
