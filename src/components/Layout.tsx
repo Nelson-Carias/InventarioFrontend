@@ -2,9 +2,11 @@ import React, { useState,ReactElement } from "react";
 import { RiMenuLine } from "react-icons/ri";
 import { PiUserSwitch } from "react-icons/pi";
 import { TbReportAnalytics } from "react-icons/tb";
-import { FiMessageSquare, FiShoppingCart } from "react-icons/fi";
+import {  FiShoppingCart } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import { FaHome, FaUser } from "react-icons/fa";
+import { FaHome, FaUser, FaBuilding } from "react-icons/fa";
+import { IoIosCube } from "react-icons/io";
+import AuthComponent from "../store/auth.store"
 
 
 interface Props{
@@ -16,17 +18,16 @@ const NavMenu = (props:Props) => {
     { name: "Inicio", link: "/home", icon: FaHome },
     { name: "Usuarios", link: "/user", icon: FaUser },
     { name: "Roles", link: "/rol", icon: PiUserSwitch },
-    { name: "Proveedores", link: "/supplier", icon: FiMessageSquare },
-    { name: "Productos", link: "/product", icon: TbReportAnalytics},
+    { name: "Proveedores", link: "/supplier", icon: FaBuilding },
+    { name: "Productos", link: "/product", icon: IoIosCube},
+    { name: "Clientes", link: "/customer", icon: IoIosCube},
     { name: "Ventas", link: "/sale", icon: FiShoppingCart },
-    { name: "Detalle Ventas", link: "/detalle", icon: TbReportAnalytics },
-    { name: "Cliente", link: "/customer", icon: FiShoppingCart },
-
+    { name: "Detalle Ventas", link: "/saleDetail", icon: TbReportAnalytics },
   ];
   const [open, setOpen] = useState(true);
   return (
-    <section className="flex gap-6">
-      <div className={`bg-dark-purple min-h-screen ${open ? "w-72" : "w-16"} duration-500 text-gray-100 px-4 `}>
+    <section className="flex gap-6  " >
+      <div className={`bg-dark-purple min-h-screen ${open ? "w-72 ml-0": "w-16 ml-0"} duration-500 text-gray-100 px-4 fixed top-0 `} >
         <div className="py-3 flex justify-end">
           <RiMenuLine
             size={26}
@@ -34,7 +35,7 @@ const NavMenu = (props:Props) => {
             onClick={() => setOpen(!open)}
           />
         </div>
-        <div className="mt-4 flex flex-col gap-4 relative">
+        <div className="mt-4 flex flex-col gap-6 ">
           {menus?.map((menu, i) => (
             <Link to={menu?.link} key={i} className={`  group flex items-center text-sm  gap-3.5 font-medium p-1 hover:bg-gray-600 rounded-md`}
             >
@@ -56,14 +57,27 @@ const NavMenu = (props:Props) => {
               >
                 {menu?.name}
               </h2> */}
-              <hr className="text-white"></hr>
+              
+
+              
+              
             </Link>
+            
             
           ))}
         </div>
+        <br />
+        <br />
+        <div >
+              
+             <AuthComponent></AuthComponent>
+        
+        </div>
+        
+
       </div>
 
-      <div className="w-full m-3">
+      <div className={ `w-full ${open ? "ml-72 p-6": "ml-16 p-6"} duration-500`}>
         {props.children}
       </div>
     </section>

@@ -19,6 +19,3 @@ export function log_out() {
         navigate('/');
  
 }
-
-
-

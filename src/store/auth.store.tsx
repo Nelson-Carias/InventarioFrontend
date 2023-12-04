@@ -3,6 +3,7 @@ import { AddToken, RemoveToken } from '../utils/local_data'
 import { LoginData } from '../types/auth.types'
 import { AxiosError } from 'axios'
 import Swal from 'sweetalert2'
+import { MdOutlineAssignmentReturn } from "react-icons/md";
 
 
 
@@ -16,13 +17,10 @@ export async function MakeLogin(data_send: LoginData){
         console.log(data);
         if (data.tokenb){
             AddToken(data.tokenb);
-            Swal.fire({
-                icon: "success",
-                title: "Inicio de sesión exitoso",
-                text: "¡Bienvenido!",
-                showConfirmButton: false, 
-                timer: 2000,
-            })
+            
+            
+
+           
 
            
 
@@ -49,7 +47,7 @@ export async function MakeLogin(data_send: LoginData){
                     title: "Error",
                     text: "Ha ocurrido un error al iniciar sesión",
                     showConfirmButton: false, 
-                    timer: 9000,
+                    timer: 2000,
                 });
             }
             return false;
@@ -67,10 +65,15 @@ function AuthComponent(){
             showConfirmButton: false, 
             timer: 2000,
         });
+
+        window.location.href = '/';
     }
     return (
         <div>
-            <button onClick={MakeLogout}>Cerrar sesión</button>
+            <button onClick={MakeLogout} className="group flex w-full items-center text-sm  gap-3.5 font-medium   hover:bg-gray-600 rounded-md "> <MdOutlineAssignmentReturn size={34}/>
+          
+        </button>
+            
         </div>
     )
 }

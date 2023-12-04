@@ -1,7 +1,7 @@
 import TableProduct from "../components/Product/TableProduct";
 import NavMenu from "../components/Layout";
 
-export default function SupplierView(){
+export default function ProductView(){
     return(
         <>
             <NavMenu>

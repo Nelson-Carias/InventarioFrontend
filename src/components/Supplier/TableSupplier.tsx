@@ -3,7 +3,6 @@
 import  { useEffect, useState } from "react";
 import useSupplierStore from "../../store/supplier.store";
 import CreateSupplier from "./CreateSupplier";
-import NavMenu from "../Layout";
 import UpdateSupplier from "./UpdateSupplier";
 import { FaTrash } from "react-icons/fa";
 
@@ -37,8 +36,6 @@ export default function TableSupplier() {
   
 
   return (
-    <>
-    <NavMenu>
     <>
     <h5 className='flex justify-center text-2xl'>Lista de Proveedores</h5>
     <CreateSupplier></CreateSupplier>
@@ -111,8 +108,6 @@ export default function TableSupplier() {
       </div>
     )}
 
-    </>
-    </NavMenu>
-    </>
+</>
   );
 }

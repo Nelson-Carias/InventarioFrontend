@@ -1,14 +1,14 @@
-import NavMenu from "../components/Layout"
+import TableSupplier from "../components/Supplier/TableSupplier";
+import NavMenu from "../components/Layout";
 
-
-export default function HomeView(){
+export default function SupplierView(){
     return(
         <>
-        <NavMenu>
-        <>
-        <p>Bienvenido</p>
+            <NavMenu>
+                <>
+                  <TableSupplier></TableSupplier>  
+                </>
+            </NavMenu>
         </>
-    </NavMenu>
-    </>
     )
 }

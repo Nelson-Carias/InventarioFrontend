@@ -1,7 +1,7 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import RolePage from "../components/Rol/TableRol"
 import HomeView from "../views/HomeView"
-import SupplierPage from "../components/Supplier/TableSupplier";
+import SupplierView from "../views/SupplierView";
 import CustomerPage from "../components/Customer/TableCostumer"
 
 import ProductView from "../views/ProductView"
@@ -17,7 +17,7 @@ function RolRoutes(){
                 <Route path="/" element={<Login></Login>}></Route>
                 <Route path="/rol" element={<RolePage></RolePage>}></Route>
                 <Route path="/home" element={<HomeView></HomeView>}></Route>
-                <Route path="/supplier" element={<SupplierPage></SupplierPage>}></Route>
+                <Route path="/supplier" element={<SupplierView></SupplierView>}></Route>
                 <Route path="/customer" element={<CustomerPage></CustomerPage>}></Route>
                 <Route path="/product" element={<ProductView></ProductView>}></Route>
                 <Route path="/user" element={<UserView></UserView>}></Route>
