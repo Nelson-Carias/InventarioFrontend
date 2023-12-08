@@ -12,7 +12,7 @@ export default function TableRol() {
   const [roleToDelete, setRoleToDelete] = useState<{id: number; roleName: string} | null>(null)
   
   useEffect(() =>{
-    OnGetRoles();
+    OnGetRoles("");
   }, [])
 
   const handleDelete = (id: number, roleName: string) => {
@@ -31,6 +31,9 @@ export default function TableRol() {
     setRoleToDelete(null);
   }
 
+  const handleSearch = (name: string) =>{
+    OnGetRoles(name)
+}
 
   
 
@@ -39,7 +42,20 @@ export default function TableRol() {
     <NavMenu>
     <>
     <h5 className='flex justify-center text-2xl'>Lista de Roles</h5>
-    <CreateRol></CreateRol>
+    <div>
+      <CreateRol></CreateRol>
+    </div>
+   <div>
+   <div className="flex justify-start p-5">
+      <p>Buscar por nombre</p>
+      <input placeholder="Escribe para buscar"
+      type="text"
+      onChange={(e) =>{
+        handleSearch(e.target.value)
+      }}/>
+      
+    </div>
+   </div>
     <div className=" container mx-auto mt-3">
       <div className=" flex justify-center "></div>
       
