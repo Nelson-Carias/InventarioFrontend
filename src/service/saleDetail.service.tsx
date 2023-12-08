@@ -8,20 +8,24 @@ import { GetToken } from "../utils/local_data";
 //     return response.data
 // }
 export const get_saleDetail = async () => {
-    const { data } = await axios.get<{ saleDetail: IGetSaleDetail[] }>(
+    const { data } = await axios.get<{ saleDetails: IGetSaleDetail[] }>(
       API_URL + "/saleDetail",
       {}
     );
     return data;
   };
 
-  export const create_saleDetail = async (saleDetail: ICreateSaleDetail) => {
-    const { data } = await axios.post<BasicResponse>(API_URL + "/saleDetail", {
-      saleDetail,
-    });
+  // export const create_saleDetail = async (saleDetail: ICreateSaleDetail) => {
+  //   const { data } = await axios.post<BasicResponse>(API_URL + "/saleDetail", {
+  //     saleDetail,
+  //   });
   
-    return data;
-  };
+  //   return data;
+  // };
+  export const create_saleDetail = async (saleDetail: ICreateSaleDetail) => {
+    const response = await axios.post(`${API_URL}/saleDetail`, saleDetail)
+    return response.data;
+}
 // export const update_saleDetail = async (id: number, sale: IUpdateSaleDetail) => {
 //     const {data} = await axios.put<{ok: boolean}>(API_URL + '/saleDetail/' + id, sale,{
 //         headers:{

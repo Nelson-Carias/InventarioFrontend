@@ -8,6 +8,7 @@ import ProductView from "../views/ProductView"
 
 import UserView from "../views/UserView"
 import SalePage from "../components/Sale/TableSale"
+import SaleDetail from "../components/SaleDetail/TableSailDetail"
 import Login from "../components/Login/Login"
 
 function RolRoutes(){
@@ -22,6 +23,7 @@ function RolRoutes(){
                 <Route path="/product" element={<ProductView></ProductView>}></Route>
                 <Route path="/user" element={<UserView></UserView>}></Route>
                 <Route path="/sale" element={<SalePage></SalePage>}></Route>
+                <Route path="/saleDetail" element={<SaleDetail></SaleDetail>}></Route>
             </Routes>
          </BrowserRouter>
     )

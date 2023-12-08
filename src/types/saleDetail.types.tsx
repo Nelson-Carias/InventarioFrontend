@@ -2,14 +2,24 @@ export interface IGetSaleDetail{
     id: number
     amount: number
     unitPrice: number
+    subTotal: number
     saleId: number
     productId: number
     state: boolean
     sale:{
       id: number
-    createDate: Date
+    
     total: number
     customerId: number
+    state: boolean
+  },
+  product:{
+    id: number
+    supplierId: number
+    name: string
+    description: string
+    price: number
+    stock: number
     state: boolean
   }
   }
@@ -17,6 +27,7 @@ export interface IGetSaleDetail{
     
     amount: number
     unitPrice: number
+    subTotal: number
     saleId: number
     productId: number
 
@@ -25,6 +36,7 @@ export interface IGetSaleDetail{
     id: number
     amount: number
     unitPrice: number
+    
     saleId: number
     productId: number
 }

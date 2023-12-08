@@ -7,13 +7,13 @@ const useSaleDetailStore = create<SaleDetailState>((set, get) => ({
   saleDetail: [],
   async OnGetSaleDetail() {
     const data = await get_saleDetail();
-    if (data.saleDetail) {
+    if (data.saleDetails) {
       set((state) => ({
         ...state,
-        saleDetail: data.saleDetail
+        saleDetail: data.saleDetails
       }));
     } else {
-      data.saleDetail = [];
+      data.saleDetails = [];
     }
   },
   async OnCreateSaleDetail(saleDetail: ICreateSaleDetail) {
