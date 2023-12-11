@@ -6,13 +6,17 @@ const useRoleStore = () => {
     const [roles, setRoles] = useState<IGetRoles[]>([])
     
     useEffect(() =>{
+<<<<<<< HEAD
         OnGetRoles();
         
+=======
+        OnGetRoles("");
+>>>>>>> 85b3a65e64e72eaebfca5ebfd131313f27cfe031
     }, []);
 
-    const OnGetRoles = async () => {
+    const OnGetRoles = async (name: string) => {
         try{
-            const data = await get_roles();
+            const data = await get_roles(name);
             setRoles(data.roles);
         }catch{
             return({
@@ -26,7 +30,7 @@ const useRoleStore = () => {
         try {
             const data = await create_rol(rol);
             if (data.ok){
-                await OnGetRoles();
+                await OnGetRoles("");
             }
         } catch {
             return({
@@ -40,7 +44,7 @@ const useRoleStore = () => {
             const data = await update_rol(id, rol);
 
             if(data.ok){
-                await OnGetRoles();
+                await OnGetRoles("");
             }
         }catch(error){
             return({
@@ -53,7 +57,7 @@ const useRoleStore = () => {
         try{
             const data = await delete_rol(id);
             if (data.ok){
-                await OnGetRoles()
+                await OnGetRoles("")
             }
         }catch{
             return({
