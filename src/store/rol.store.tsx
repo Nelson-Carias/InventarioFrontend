@@ -7,6 +7,7 @@ const useRoleStore = () => {
     
     useEffect(() =>{
         OnGetRoles();
+        
     }, []);
 
     const OnGetRoles = async () => {

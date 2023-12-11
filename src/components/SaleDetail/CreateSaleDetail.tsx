@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState, useEffect } from 'react';
 import useSaleDetailStore from '../../store/saleDetail.store';
 import { FaPlus } from 'react-icons/fa';
 import useSaleStore from '../../store/sale.store';
@@ -72,7 +72,7 @@ const {sale, OnGetSale} = useSaleStore();
 const {products, OnGetProducts} = useProductStore();
 
 
-React.useEffect(() => {
+useEffect(() => {
   OnGetSale();
   OnGetProducts();
 }, []);
