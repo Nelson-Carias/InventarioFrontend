@@ -6,12 +6,9 @@ const useRoleStore = () => {
     const [roles, setRoles] = useState<IGetRoles[]>([])
     
     useEffect(() =>{
-<<<<<<< HEAD
-        OnGetRoles();
-        
-=======
         OnGetRoles("");
->>>>>>> 85b3a65e64e72eaebfca5ebfd131313f27cfe031
+        
+        OnGetRoles("");
     }, []);
 
     const OnGetRoles = async (name: string) => {
