@@ -73,21 +73,31 @@ const UpdateProduct = ({id, newNameProduct, newDescriptionProduct, newPriceProdu
               <div className="bg-white rounded-lg shadow-lg p-6">
                 <h3 className="text-lg font-medium mb-4 text-center">Editar Producto</h3>
                 <form >
-                <div className="modal container bg-white space-y-1 ">
+                <div className="modal container bg-white  grid grid-cols-2 ">
+
+                        <div className="">
                         <label htmlFor="name" className="block text-gray-700 text-sm font-medium">Nombres:</label>
                         <input id="name"  type="text" value={newName} onChange={handleInputChangeN} className="w-full h-10 p-4 border border-gray-300 rounded-xl" placeholder="Nombre del producto"/> 
+                        </div>
 
+                        <div className="ml-5 ">
                         <label htmlFor="description" className="block text-gray-700 text-sm font-medium">Descripción:</label>
                         <input id="description" type="text" value={newDescription} onChange={handleInputChangeD} className="w-full h-10 p-4 border border-gray-300 rounded-xl" placeholder="Descripción del producto"/> 
+                        </div>
 
-                        <label htmlFor="price" className="block text-gray-700 text-sm font-medium">Price:</label>
-                        <input id="price" type="text" value={newPrice} onChange={handleInputChangeP} className="w-full h-10 p-4 border border-gray-300 rounded-xl" placeholder="Precio del Producto"/> 
+                        <div className="">
+                        <label htmlFor="price" className="block text-gray-700 text-sm font-medium mt-3">Price:</label>
+                        <input id="price" type="text" value={newPrice} onChange={handleInputChangeP} className="w-full h-10  p-4 border border-gray-300 rounded-xl" placeholder="Precio del Producto"/> 
+                        </div>
 
-                        <label htmlFor="stock" className="block text-gray-700 text-sm font-medium">Stock:</label>
+                        <div className="ml-5">
+                        <label htmlFor="stock" className="block text-gray-700 text-sm font-medium mt-3">Stock:</label>
                         <input id="password" type="text" value={newStock} onChange={handleInputChangeS} className="w-full h-10 p-4 border border-gray-300 rounded-xl" placeholder="Stock del producto"/> 
+                        </div>
 
-                        <label htmlFor="supplierId" className="block font-semibold mb-2">Selecciona un Proveedor:</label>
-                        <select id="supplierId" name="supplierId" onChange={(e) => handleSelectChangeSP(e)} value={newSupplier} className="w-full border-gray-300 border rounded-lg px-3 py-2 mb-4" >
+                        <div className="">
+                        <label htmlFor="supplierId" className="block font-semibold ">Selecciona un Proveedor:</label>
+                        <select id="supplierId" name="supplierId" onChange={(e) => handleSelectChangeSP(e)} value={newSupplier} className="w-full border-gray-300 border rounded-lg px-3 py-2 " >
                             <option value="" disabled>Selecciona un rol</option>
                             {supplier.map((supplier) => (
                                 <option key={supplier.id} value={supplier.id}>
@@ -95,6 +105,7 @@ const UpdateProduct = ({id, newNameProduct, newDescriptionProduct, newPriceProdu
                                 </option>
                             ))}
                         </select>
+                        </div>
                     </div>
                   <div className="flex justify-end">
                     <button onClick={handleSubmit} className="px-4 py-2 text-black bg-blue-600 text-sm font-medium rounded-md">

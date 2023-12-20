@@ -19,11 +19,6 @@ export async function MakeLogin(data_send: LoginData){
             AddToken(data.tokenb);
             
             
-
-           
-
-           
-
             window.location.href = '/home';
 
             return true;

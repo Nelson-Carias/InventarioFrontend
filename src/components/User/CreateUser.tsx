@@ -10,7 +10,7 @@ export default function CreateUSer(){
   const {roles, OnGetRoles} = useRoleStore();
 
   React.useEffect(() => {
-    OnGetRoles();
+    OnGetRoles("");
   }, []);
 
   const {OnCreateUser} = useUserStore();
@@ -62,14 +62,34 @@ export default function CreateUSer(){
           <div className="bg-white rounded-lg shadow-lg p-6">
             <h3 className="text-lg font-medium mb-4 text-center">Añadir Usuario</h3>
             <form >
-              <div className="mb-4">
-                <label htmlFor="user" className="block text-gray-700 text-sm font-medium">Nombre:</label>
-                <input  type="text" name="name" onChange={handleInputChange} className="w-full h-10 p-4 border rounded-xl" placeholder="Nombres del usuario"/> 
-                <input  type="text" name="lastName" onChange={handleInputChange} className="w-full h-10 p-4 border rounded-xl" placeholder="Apellidos del usuario"/> 
-                <input  type="text" name="email" onChange={handleInputChange} className="w-full h-10 p-4 border rounded-xl" placeholder="Email del usuario"/> 
-                <input  type="text" name="password" onChange={handleInputChange} className="w-full h-10 p-4 border rounded-xl" placeholder="Password del usuario"/> 
-                <select name="rolId" onChange={(e) => handleInputChange(e)} value={user.rolId} className="w-full border-gray-300 rounded-lg px-3 py-2 mb-4" >
-                    <option value="" disabled>Selecciona un rol</option>
+              <div className="mb-4 grid grid-cols-2">
+                <div>
+                  <label htmlFor="user" className="block text-gray-700 text-sm font-medium">Nombre:</label>
+                  <input  type="text" name="name" onChange={handleInputChange} className="w-full h-10 p-4 border rounded-xl" placeholder="Nombres del usuario"/> 
+
+                </div>
+                <div className='ml-5'>
+                  <label>Apellido</label>
+                  <input  type="text" name="lastName" onChange={handleInputChange} className="w-full h-10 p-4 border rounded-xl" placeholder="Apellidos del usuario"/> 
+
+                </div>
+                <div className='mt-4'>
+                  <label>Email</label>
+                  <input  type="text" name="email" onChange={handleInputChange} className="w-full h-10 p-4 border rounded-xl" placeholder="Email del usuario"/> 
+
+                </div>
+
+                <div className='ml-5 mt-4'>
+                  <label>Password</label>
+                  <input  type="text" name="password" onChange={handleInputChange} className="w-full h-10 p-4 border rounded-xl" placeholder="Password del usuario"/> 
+
+                </div>
+                  <label>Rol</label>
+                <div>
+
+                </div>
+                <select name="rolId" onChange={(e) => handleInputChange(e)} value={user.rolId} className="w-full border border-gray-300 rounded-lg px-3 py-2 mb-4" >
+                    <option value="" >Selecciona un rol</option>
                     {roles.map((rol) => (
                         <option key={rol.id} value={rol.id}>
                             {rol.rol}

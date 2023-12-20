@@ -82,7 +82,7 @@ export default function TableSaleDetail() {
               <td className="px-6 py-4">{saleDetail.subTotal}</td>
 
               <td className="px-6 py-4">{saleDetail.saleId}</td>
-              <td className="px-6 py-4">{saleDetail.productId}</td>
+              <td className="px-6 py-4">{saleDetail.product.name}</td>
 
               
 
