@@ -1,6 +1,6 @@
 import axios from "axios";
 import {API_URL} from "../utils/constants"
-import {  IGetSaleDetail,  BasicResponse, IUpdateSaleDetail, ICreateSaleDetail } from "../types/saleDetail.types";
+import {  IGetSaleDetail,   IUpdateSaleDetail, ICreateSaleDetail } from "../types/saleDetail.types";
 import { GetToken } from "../utils/local_data";
 
 // export const get_saleDetail = async () => {

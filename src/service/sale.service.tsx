@@ -4,7 +4,11 @@ import {  IGetSale, ICreateSale, IUpdateSale } from "../types/sale.types";
 import { GetToken } from "../utils/local_data";
 
 export const get_sale = async () => {
-    const response = await axios.get<{sales: IGetSale[]}>(`${API_URL}/sale`)
+    const response = await axios.get<{sales: IGetSale[]}>(`${API_URL}/sale`,{
+        headers:{
+            Authorization: "Bearer " + GetToken()
+        }
+    })
     return response.data
 }
 
