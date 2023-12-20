@@ -124,7 +124,7 @@ const UpdateSale = ({id, newSaleTotal, newSaleCustomerId,}: {id: number, newSale
                   </div>
                   <div className="mb-4">
                     <label htmlFor="customerId" className="block text-gray-700 text-sm font-medium">Cliente:</label>
-                    <select name="customerId" onChange={(e) => handleSelectChange(e)} value={newCustomerId} className="w-full border-gray-300 rounded-lg px-3 py-2 mb-4" >
+                    <select name="customerId" onChange={(e) => handleSelectChange(e)} value={newCustomerId} className="w-full border border-gray-300 rounded-lg px-3 py-2 mb-4" >
                   <option value="">Selecciona un cliente</option>
                   {customer && customer.map((customer) => (
                       <option key={customer.id} value={customer.id}>

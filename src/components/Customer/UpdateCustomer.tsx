@@ -58,23 +58,25 @@ const UpdateCustomer = ({customerId, customerNameUpdate, customerLastName, custo
               <div className="bg-white rounded-lg shadow-lg p-6">
                 <span onClick={closeModal}></span>
                 <h3 className="text-lg font-medium mb-4 text-center">Editar Cliente</h3>
-                <form >
+                <form className="grid grid-cols-2">
                   <div className="mb-4">
                     <label htmlFor="name" className="block text-gray-700 text-sm font-medium">Nombre:</label>
                     <input type="text" value={newCustomerName} onChange={handleInputChangeN}  className="w-full h-10 p-4 border rounded-xl" placeholder="Ingrese el nombre"/> 
 
                   </div>
-                  <div className="mb-4">
+                  <div className=" ml-5">
                     <label htmlFor="lastname" className="block text-gray-700 text-sm font-medium">Apellido:</label>
                     <input type="string" value={newCustomerLastName} onChange={handleInputChangeC}  className="w-full h-10 p-4 border rounded-xl" placeholder="Ingrese el Apellido"/> 
 
                   </div>
-                  <div className="mb-4">
+                  <div className="mb-4 mt-2">
                     <label htmlFor="direction" className="block text-gray-700 text-sm font-medium">Direccion:</label>
                     <input type="text" value={newCustomerDirection} onChange={handleInputChangeD}  className="w-full h-10 p-4 border rounded-xl" placeholder="Ingrese la direccioin"/> 
 
                   </div>
-                  <div className="flex justify-end">
+                  
+                </form>
+                <div className="flex justify-end">
                     <button onClick={handleSubmit}  className="px-4 py-2 text-black bg-blue-600 text-sm font-medium rounded-md">
                       Guardar
                     </button>
@@ -82,7 +84,6 @@ const UpdateCustomer = ({customerId, customerNameUpdate, customerLastName, custo
                       Cancelar
                     </button>
                   </div>
-                </form>
               </div>
             </div>
           )}

@@ -122,8 +122,8 @@ return (
           <h3 className="text-lg font-medium mb-4 text-center">Añadir venta</h3>
           <form >
             <div className="mb-4">
-              <input  type="number" name="total" onChange={handleInputChange} className="w-full h-10 p-4 border rounded-xl" placeholder="total"/> 
-              <select name="customerId" onChange={(e) => handleInputChange(e)} value={sale.customerId} className="w-full border-gray-300 rounded-lg px-3 py-2 mb-4" >
+              <input  type="number" name="total" onChange={handleInputChange} className="w-full h-10 p-4 border rounded-xl mb-3" placeholder="total"/> 
+              <select name="customerId" onChange={(e) => handleInputChange(e)} value={sale.customerId} className="w-full border border-gray-300 rounded-lg px-3 py-2 mb-4 mt-5" >
                   <option value="">Selecciona un cliente</option>
                   {customer && customer.map((customer) => (
                       <option key={customer.id} value={customer.id}>

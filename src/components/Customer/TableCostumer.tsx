@@ -95,7 +95,7 @@ export default function TableCustomer() {
     {customerToDelete && (
       <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
         <div className="bg-white p-4 rounded-lg shadow-lg">
-          <p>¿Estas seguro que quieres eliminar el Cliente "{customerToDelete.customerName} {customerToDelete.customerLastName} {customerToDelete.customerDirection}"?</p>
+          <p>¿Estas seguro que quieres eliminar el Cliente "{customerToDelete.customerName} "?</p>
           <div className="mt-4 flex justify-center">
             <button onClick={ConfirmDelete} className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full">
                 eliminar
