@@ -48,15 +48,15 @@ export default function CreateSupplier(){
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
           <div className="bg-white rounded-lg shadow-lg p-6">
             <h3 className="text-lg font-medium mb-4 text-center">Añadir Proveedor</h3>
-            <form >
+            <form className='grid grid-cols-2'>
               <div className="mb-4">
                 <label htmlFor="name" className="block text-gray-700 text-sm font-medium">Nombre:</label>
                 <input  type="text" value={supplierName} onChange={handleInputChangeN} className="w-full h-10 p-4 border rounded-xl" placeholder="Ingrese el nombre"/> 
               </div>
 
-              <div className="mb-4">
-                <label htmlFor="name" className="block text-gray-700 text-sm font-medium">Numero de Contacto:</label>
-                <input  type="text" value={supplierContact} onChange={handleInputChangeC} className="w-full h-10 p-4 border rounded-xl" placeholder="Ingrese el Contacto"/> 
+              <div className="mb-4 ml-5">
+                <label htmlFor="contact" className="block text-gray-700 text-sm font-medium">Numero de Contacto:</label>
+                <input  type="text" value={supplierContact} onChange={handleInputChangeC} className="w-full h-10 p-4 border rounded-xl" placeholder="Ingrese el numero de Contacto"/> 
               </div>
 
 
@@ -66,7 +66,9 @@ export default function CreateSupplier(){
               </div>
               
 
-              <div className="flex justify-end">
+           
+            </form>
+            <div className="flex justify-end">
                 <button onClick={handleSubmit} className="px-4 py-2 text-black bg-blue-600 text-sm font-medium rounded-md">
                   Guardar
                 </button>
@@ -74,7 +76,6 @@ export default function CreateSupplier(){
                   Cancelar
                 </button>
               </div>
-            </form>
           </div>
         </div>
       )}

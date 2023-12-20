@@ -6,7 +6,7 @@ import { FaRegEdit } from "react-icons/fa";
 const UpdateUser = ({id, newNameUser, newLastNameUser, newEmailUser, newRolId} : {id: number, newNameUser: string, newLastNameUser: string, newEmailUser:string, newRolId: number}) =>{
     const {roles, OnGetRoles} = useRoleStore();
     React.useEffect(() => {
-        OnGetRoles();
+        OnGetRoles("");
     }, [])
 
     const {OnUpdateUser} = useUserStore();
@@ -68,21 +68,34 @@ const UpdateUser = ({id, newNameUser, newLastNameUser, newEmailUser, newRolId} :
                 <div className="bg-white rounded-lg shadow-lg p-6 relative">
                     <h3 className="text-lg font-medium mb-4 text-center">Modificar Usuario</h3>
                     <form >
-                    <div className="modal container bg-white">
+                    <div className="modal container bg-white grid grid-cols-2">
+                        <div>
                         <label htmlFor="name" className="block text-gray-700 text-sm font-medium">Nombres:</label>
                         <input id="name"  type="text" name="newName" onChange={handleInputChange} className="w-full h-10 p-4 border rounded-xl" placeholder="Nombres del usuario"/> 
 
-                        <label htmlFor="lastName" className="block text-gray-700 text-sm font-medium">Apellidos:</label>
+                        </div>
+                      
+                      <div className="ml-5">
+                      <label htmlFor="lastName" className="block text-gray-700 text-sm font-medium">Apellidos:</label>
                         <input id="lastName" type="text" name="newLastName" onChange={handleInputChange} className="w-full h-10 p-4 border rounded-xl" placeholder="Apellidos del usuario"/> 
 
-                        <label htmlFor="email" className="block text-gray-700 text-sm font-medium">Correo Electrónico:</label>
+                      </div>
+                      
+                      <div className="mt-5">
+                      <label htmlFor="email" className="block text-gray-700 text-sm font-medium">Correo Electrónico:</label>
                         <input id="email" type="text" name="newEmail" onChange={handleInputChange} className="w-full h-10 p-4 border rounded-xl" placeholder="Email del usuario"/> 
 
-                        <label htmlFor="password" className="block text-gray-700 text-sm font-medium">Contraseña:</label>
+                      </div>
+                     
+                     <div className="ml-5 mt-5">
+                     <label htmlFor="password" className="block text-gray-700 text-sm font-medium">Contraseña:</label>
                         <input id="password" type="text" name="newPassword" onChange={handleInputChange} className="w-full h-10 p-4 border rounded-xl" placeholder="Password del usuario"/> 
 
-                        <label htmlFor="rolId" className="block font-semibold mb-2">Selecciona un Rol:</label>
-                        <select id="rolId" name="rolId" onChange={(e) => handleSelectChange(e)} value={newRol} className="w-full border-gray-300 rounded-lg px-3 py-2 mb-4" >
+                     </div>
+
+                     <div className="mt-3">
+                     <label htmlFor="rolId" className="block font-semibold mb-2">Selecciona un Rol:</label>
+                        <select id="rolId" name="rolId" onChange={(e) => handleSelectChange(e)} value={newRol} className="w-full border border-gray-300 rounded-lg px-3 py-2 mb-4" >
                             <option value="" disabled>Selecciona un rol</option>
                             {roles.map((rol) => (
                                 <option key={rol.id} value={rol.id}>
@@ -90,6 +103,9 @@ const UpdateUser = ({id, newNameUser, newLastNameUser, newEmailUser, newRolId} :
                                 </option>
                             ))}
                         </select>
+                     </div>
+                      
+                      
                     </div>
                     <div className="flex justify-end">
                         <button onClick={handleSubmit} className="px-4 py-2 text-black bg-blue-600 text-sm font-medium rounded-md">

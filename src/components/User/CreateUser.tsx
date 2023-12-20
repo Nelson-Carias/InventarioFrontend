@@ -10,7 +10,7 @@ export default function CreateUSer(){
   const {roles, OnGetRoles} = useRoleStore();
 
   React.useEffect(() => {
-    OnGetRoles();
+    OnGetRoles("");
   }, []);
 
   const {OnCreateUser} = useUserStore();
