@@ -13,3 +13,7 @@ export const AddToken = (token: string) =>{
   export const IsAuth = () => {
     return GetToken()? true: false
   }
+
+  export function isAuthenticated() {
+    return !!localStorage.getItem('token')
+  }
