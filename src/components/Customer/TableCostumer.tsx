@@ -13,7 +13,7 @@ export default function TableCustomer() {
   const [customerToDelete, setCustomerToDelete] = useState<{id: number; customerName: string, customerLastName:string, customerDirection:string} | null>(null)
   
   useEffect(() =>{
-    OnGetCustomer();
+    OnGetCustomer("");
   }, [])
 
   const handleDelete = (id: number, customerName: string, customerLastName:string, customerDirection:string) => {
@@ -33,7 +33,9 @@ export default function TableCustomer() {
     setCustomerToDelete(null);
   }
 
-
+  const handleSearch = (name: string) =>{
+    OnGetCustomer(name)
+}
   
 
   return (
@@ -41,10 +43,21 @@ export default function TableCustomer() {
     <NavMenu>
     <>
     <h5 className='flex justify-center text-2xl'>Lista de Clientes</h5>
+    
     <CreateCustomer></CreateCustomer>
+    
     <div className=" container mx-auto mt-3">
-      <div className=" flex justify-center "></div>
       
+      <div className=" flex justify-center "></div>
+      <div className="flex justify-start p-5">
+      <p>Buscar por nombre</p>
+      <input placeholder="Escribe para buscar"
+      type="text"
+      onChange={(e) =>{
+        handleSearch(e.target.value)
+      }}/>
+      
+    </div>
       <table className="w-full text-sm text-left rtl:text-right text-gray-700">
         <thead >
           <tr className="bg-[#186696] text-white font-semi-bold text-xl" >

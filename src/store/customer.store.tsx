@@ -7,12 +7,12 @@ const useCustomerStore = () => {
     const [customer, setCustomer] = useState<IGetCustomer[]>([])
     
     useEffect(() =>{
-        OnGetCustomer();
+        OnGetCustomer("");
     }, []);
 
-    const OnGetCustomer = async () => {
+    const OnGetCustomer = async (name:string) => {
         try{
-            const data = await get_customer();
+            const data = await get_customer(name);
             setCustomer(data.customer);
         }catch{
             return({
@@ -26,7 +26,7 @@ const useCustomerStore = () => {
         try {
             const data = await create_customer(name, lastName, direction);
             if (data.ok){
-                await OnGetCustomer();
+                await OnGetCustomer("");
             }
         } catch {
             return({
@@ -40,7 +40,7 @@ const useCustomerStore = () => {
             const data = await update_customer(id, name, lastName, direction);
 
             if(data.ok){
-                await OnGetCustomer();
+                await OnGetCustomer("");
             }
         }catch(error){
             return({
@@ -53,7 +53,7 @@ const useCustomerStore = () => {
         try{
             const data = await delete_customer(id);
             if (data.ok){
-                await OnGetCustomer()
+                await OnGetCustomer("")
             }
         }catch{
             return({

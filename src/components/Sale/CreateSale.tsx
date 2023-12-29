@@ -71,9 +71,9 @@ export default function CreateSale(){
 //   }
 
 const {customer, OnGetCustomer} = useCustomerStore();
-
+const [error, setError] = useState('');
 React.useEffect(() => {
-  OnGetCustomer();
+  OnGetCustomer("");
 }, []);
 
 const {OnCreateSale} = useSaleStore();
@@ -103,8 +103,11 @@ const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectEle
 
 const handleSubmit = async () => {
   try {
+   
       await OnCreateSale(sale)
       closeModal();
+   
+      
   } catch (error) {
       console.log("Error al crear el venta:", error)
   }
@@ -140,6 +143,7 @@ return (
                 Cancelar
               </button>
             </div>
+            {error && <p style={{ color: 'red' }}>{error}</p>}
           </form>
         </div>
       </div>

@@ -11,9 +11,9 @@ import { FaTrash } from "react-icons/fa";
 export default function TableSupplier() {
   const {supplier, OnGetSupplier, OnDeleteSupplier} = useSupplierStore();
   const [supplierToDelete, setSupplierToDelete] = useState<{id: number; supplierName: string, supplierContact:string, supplierDirection:string} | null>(null)
-  
+ 
   useEffect(() =>{
-    OnGetSupplier();
+    OnGetSupplier("");
   }, [])
 
   const handleDelete = (id: number, supplierName: string, supplierContact:string, supplierDirection:string) => {
@@ -32,7 +32,9 @@ export default function TableSupplier() {
     setSupplierToDelete(null);
   }
 
-
+  const handleSearch = (name: string) =>{
+    OnGetSupplier(name)
+}
   
 
   return (
@@ -41,7 +43,15 @@ export default function TableSupplier() {
     <CreateSupplier></CreateSupplier>
     <div className=" container mx-auto mt-3">
       <div className=" flex justify-center "></div>
+      <div className="flex justify-start p-5">
+      <p>Buscar por nombre</p>
+      <input placeholder="Escribe para buscar"
+      type="text"
+      onChange={(e) =>{
+        handleSearch(e.target.value)
+      }}/>
       
+    </div>
       <table className="w-full text-sm text-left rtl:text-right text-gray-700">
         <thead >
           <tr className="bg-[#186696] text-white font-semi-bold text-xl" >

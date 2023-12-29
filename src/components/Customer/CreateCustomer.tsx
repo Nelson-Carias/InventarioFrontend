@@ -9,8 +9,12 @@ export default function CreateCustomer(){
   const[customerLastName, setCustomerLastName] = useState('');
   const[customerDirection, setCustomerDirection] = useState('');
   const [showModal, setShowModal] = useState(false);
-
+  const [error, setError] = useState('');
   const closeModal = () => {
+    setError('');
+    setCustomerName('');
+    setCustomerLastName('');
+    setCustomerDirection('');
     setShowModal(false)
   }
          
@@ -32,9 +36,12 @@ export default function CreateCustomer(){
   }
 
   const handleSubmit = async () => {
-    if(customerName.trim() !== ''){
+  if(customerName.trim() !== '' && customerLastName.trim() !== '' && customerDirection.trim() !== ''){
       await OnCreateCustomer(customerName, customerLastName, customerDirection);
       closeModal()
+    }else{
+      setError('Revise que no queden campos vacios');
+
     }
   }
 
@@ -76,6 +83,7 @@ export default function CreateCustomer(){
                   Cancelar
                 </button>
               </div>
+              {error && <p style={{ color: 'red' }}>{error}</p>}
           </div>
         </div>
       )}

@@ -7,12 +7,12 @@ const useSupplierStore = () => {
     const [supplier, setSupplier] = useState<IGetSuppliers[]>([])
     
     useEffect(() =>{
-        OnGetSupplier();
+        OnGetSupplier("");
     }, []);
 
-    const OnGetSupplier = async () => {
+    const OnGetSupplier = async (name: string) => {
         try{
-            const data = await get_supplier();
+            const data = await get_supplier(name);
             setSupplier(data.supplier);
         }catch{
             return({
@@ -26,7 +26,7 @@ const useSupplierStore = () => {
         try {
             const data = await create_supplier(name, contact, direction);
             if (data.ok){
-                await OnGetSupplier();
+                await OnGetSupplier("");
             }
         } catch {
             return({
@@ -40,7 +40,7 @@ const useSupplierStore = () => {
             const data = await update_supplier(id, name, contact, direction);
 
             if(data.ok){
-                await OnGetSupplier();
+                await OnGetSupplier("");
             }
         }catch(error){
             return({
@@ -53,7 +53,7 @@ const useSupplierStore = () => {
         try{
             const data = await delete_supplier(id);
             if (data.ok){
-                await OnGetSupplier()
+                await OnGetSupplier("")
             }
         }catch{
             return({

@@ -11,7 +11,7 @@ import useSupplierStore from '../../store/supplier.store';
 
 export default function CreateProduct(){
   const {supplier, OnGetSupplier} = useSupplierStore()
-
+  const [error, setError] = useState('');
   React.useEffect(() => {
     OnGetSupplier();
   }, []);
@@ -45,12 +45,19 @@ export default function CreateProduct(){
   }
 
   const handleSubmit = async ()=>{
-    try {
-      await OnCreateProduct(product)
-      closeModal();
-    } catch (error) {
-      console.log("Error al crear el usuario:", error)
-    }
+    
+      if( !product  ){
+        await OnCreateProduct(product)
+        
+     
+      }else{
+        setError('Revise que no queden campos vacios');
+  
+        console.log("nel perro")
+       // setShowModal(true);
+      }
+     
+    
   }
      
   
@@ -115,6 +122,7 @@ export default function CreateProduct(){
                   Cancelar
                 </button>
               </div>
+              {error && <p style={{ color: 'red' }}>{error}</p>}
             </form>
           </div>
         </div>

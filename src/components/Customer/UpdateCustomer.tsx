@@ -8,7 +8,7 @@ const UpdateCustomer = ({customerId, customerNameUpdate, customerLastName, custo
     const [newCustomerName, setNewCustomerName] = useState(customerNameUpdate);
     const [newCustomerLastName, setNewCustomerLastName] = useState(customerLastName);
     const [newCustomerDirection, setNewCustomerDirection] = useState(customerDirection);
-
+    const [error, setError] = useState('');
     const {OnUpdateCustomer} = useCustomerStore();
 
     const closeModal = () => {
@@ -38,10 +38,14 @@ const UpdateCustomer = ({customerId, customerNameUpdate, customerLastName, custo
 }
 
     const handleSubmit = async () => {
-        if (newCustomerName.trim() !== ''){
-            await OnUpdateCustomer(customerId, newCustomerName, newCustomerLastName, newCustomerDirection);
-            closeModal();
-        }
+      if(newCustomerName.trim() !== '' && newCustomerLastName.trim() !== '' && newCustomerDirection.trim() !== ''){
+        await OnUpdateCustomer(customerId, newCustomerName, newCustomerLastName, newCustomerDirection);
+        closeModal()
+      }else{
+        setError('Revise que no queden campos vacios');
+  
+      }
+        
     }
 
 
@@ -84,6 +88,7 @@ const UpdateCustomer = ({customerId, customerNameUpdate, customerLastName, custo
                       Cancelar
                     </button>
                   </div>
+                  {error && <p style={{ color: 'red' }}>{error}</p>}
               </div>
             </div>
           )}

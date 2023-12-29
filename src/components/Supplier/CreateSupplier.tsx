@@ -9,8 +9,12 @@ export default function CreateSupplier(){
   const[supplierContact, setSupplierContact] = useState('');
   const[supplierDirection, setSupplierDirection] = useState('');
   const [showModal, setShowModal] = useState(false);
-
+  const [error, setError] = useState('');
   const closeModal = () => {
+    setError('');
+    setSupplierName('');
+    setSupplierContact('');
+    setSupplierDirection('');
     setShowModal(false)
   }
          
@@ -24,6 +28,7 @@ export default function CreateSupplier(){
     
   }
   const handleInputChangeC = (e: React.ChangeEvent<HTMLInputElement>) =>{
+    
     setSupplierContact(e.target.value)
   }
   const handleInputChangeD = (e: React.ChangeEvent<HTMLInputElement>) =>{
@@ -32,9 +37,13 @@ export default function CreateSupplier(){
   }
 
   const handleSubmit = async () => {
-    if(supplierName.trim() !== ''){
+    if(supplierName.trim() !== '' && supplierContact.trim()!=='' && supplierDirection.trim()!==''){
       await OnCreateSupplier(supplierName, supplierContact, supplierDirection);
       closeModal()
+    }else{
+      setError('Revise que no queden campos vacios');
+
+      console.log("nel perro")
     }
   }
 
@@ -52,17 +61,21 @@ export default function CreateSupplier(){
               <div className="mb-4">
                 <label htmlFor="name" className="block text-gray-700 text-sm font-medium">Nombre:</label>
                 <input  type="text" value={supplierName} onChange={handleInputChangeN} className="w-full h-10 p-4 border rounded-xl" placeholder="Ingrese el nombre"/> 
+              
+
               </div>
 
               <div className="mb-4 ml-5">
                 <label htmlFor="contact" className="block text-gray-700 text-sm font-medium">Numero de Contacto:</label>
-                <input  type="text" value={supplierContact} onChange={handleInputChangeC} className="w-full h-10 p-4 border rounded-xl" placeholder="Ingrese el numero de Contacto"/> 
+                <input  type="number" value={supplierContact} onChange={handleInputChangeC} className="w-full h-10 p-4 border rounded-xl" placeholder="Ingrese el numero de Contacto"/> 
+                {/* {error && <p style={{ color: 'red' }}>{error}</p>} */}
               </div>
 
 
               <div className="mb-4">
                 <label htmlFor="name" className="block text-gray-700 text-sm font-medium">Direcciòn:</label>
                 <input  type="text" value={supplierDirection} onChange={handleInputChangeD} className="w-full h-10 p-4 border rounded-xl" placeholder="Ingrese La Direccion"/> 
+                {/* {error && <p style={{ color: 'red' }}>{error}</p>} */}
               </div>
               
 
@@ -71,11 +84,14 @@ export default function CreateSupplier(){
             <div className="flex justify-end">
                 <button onClick={handleSubmit} className="px-4 py-2 text-black bg-blue-600 text-sm font-medium rounded-md">
                   Guardar
+                  
                 </button>
+                
                 <button onClick={closeModal} type="button" className="px-4 py-2 bg-gray-200 text-gray-800 text-sm font-medium rounded-md ml-2">
                   Cancelar
                 </button>
               </div>
+              {error && <p style={{ color: 'red' }}>{error}</p>}
           </div>
         </div>
       )}

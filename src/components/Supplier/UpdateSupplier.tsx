@@ -8,7 +8,7 @@ const UpdateSupplier = ({supplierId, supplierNameUpdate, supplierContact, suppli
     const [newSupplierName, setNewSupplierName] = useState(supplierNameUpdate);
     const [newSupplierContact, setNewSupplierContact] = useState(supplierContact);
     const [newSupplierDirection, setNewSupplierDirection] = useState(supplierDirection);
-
+    const [error, setError] = useState('');
     const {OnUpdateSupplier} = useSupplierStore();
 
     const closeModal = () => {
@@ -48,10 +48,14 @@ const UpdateSupplier = ({supplierId, supplierNameUpdate, supplierContact, suppli
 }
 
     const handleSubmit = async () => {
-        if (newSupplierName.trim() !== ''){
-            await OnUpdateSupplier(supplierId, newSupplierName, newSupplierContact, newSupplierDirection);
-            closeModal();
-        }
+      if(newSupplierName.trim() !== '' && newSupplierContact.trim()!=='' && newSupplierDirection.trim()!==''){
+        await OnUpdateSupplier(supplierId, newSupplierName, newSupplierContact, newSupplierDirection);
+        closeModal()
+      }else{
+        setError('Revise que no queden campos vacios');
+  
+        console.log("nel perro")
+      }
     }
 
 
@@ -94,6 +98,7 @@ const UpdateSupplier = ({supplierId, supplierNameUpdate, supplierContact, suppli
                       Cancelar
                     </button>
                   </div>
+                  {error && <p style={{ color: 'red' }}>{error}</p>}
               </div>
             </div>
           )}

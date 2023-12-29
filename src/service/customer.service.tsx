@@ -3,8 +3,8 @@ import {API_URL} from "../utils/constants"
 import {  IGetCustomer } from "../types/customer.types";
 import { GetToken } from "../utils/local_data";
 
-export const get_customer = async () => {
-    const {data} = await axios.get<{customer: IGetCustomer[]}>(API_URL + "/customer",
+export const get_customer = async (name: string) => {
+    const {data} = await axios.get<{customer: IGetCustomer[]}>(API_URL + `/customer?name=${name}`,
     {
         headers:{
             Authorization: "Bearer " + GetToken()

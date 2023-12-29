@@ -3,8 +3,8 @@ import {API_URL} from "../utils/constants"
 import {  IGetSuppliers } from "../types/supplier.types";
 import { GetToken } from "../utils/local_data";
 
-export const get_supplier = async () => {
-    const {data} = await axios.get<{supplier: IGetSuppliers[]}>(API_URL + "/supplier",
+export const get_supplier = async (name: string) => {
+    const {data} = await axios.get<{supplier: IGetSuppliers[]}>(API_URL + `/supplier?name=${name}`,
     {
         headers:{
             Authorization: "Bearer " + GetToken()
