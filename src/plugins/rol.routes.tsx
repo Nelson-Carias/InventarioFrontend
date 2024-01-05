@@ -1,5 +1,4 @@
 import { Routes, Route, BrowserRouter, Outlet, Navigate } from "react-router-dom";
-import RolePage from "../components/Rol/TableRol"
 import HomeView from "../views/HomeView"
 import SupplierView from "../views/SupplierView";
 import CustomerPage from "../components/Customer/TableCostumer"
@@ -11,6 +10,7 @@ import SalePage from "../components/Sale/TableSale"
 import SaleDetail from "../components/SaleDetail/TableSailDetail"
 import Login from "../components/Login/Login"
 import { isAuthenticated } from "../utils/local_data";
+import RolView from "../views/RolView";
 
 
 const PrivateRoutes = () => {
@@ -22,7 +22,7 @@ function RolRoutes(){
         <BrowserRouter>
             <Routes>
                 <Route element={<PrivateRoutes/>}>
-                <Route path="/rol" element={<RolePage></RolePage>}></Route>
+                <Route path="/rol" element={<RolView></RolView>}></Route>
                 <Route path="/home" element={<HomeView></HomeView>}></Route>
                 <Route path="/supplier" element={<SupplierView></SupplierView>}></Route>
                 <Route path="/customer" element={<CustomerPage></CustomerPage>}></Route>

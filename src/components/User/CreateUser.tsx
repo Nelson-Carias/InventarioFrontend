@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import useUserStore from '../../store/user.store';
-import useRoleStore from '../../store/rol.store';
+import {useRoleStore} from '../../store/rol.store';
 import { FaPlus } from 'react-icons/fa';
 import { ICreateUser } from '../../types/user.types';
 
@@ -10,7 +10,7 @@ export default function CreateUSer(){
   const {roles, OnGetRoles} = useRoleStore();
 
   React.useEffect(() => {
-    OnGetRoles("");
+    OnGetRoles(1, 10, "");
   }, []);
 
   const {OnCreateUser} = useUserStore();

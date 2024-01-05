@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.icon-container {
+    position: relative;
+  }
+  
+  .popup-message {
+      position: absolute;
+      top: -40px; 
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #525152;
+      color: white;
+      padding: 6px;
+      border-radius: 5px;
+      display: none;
+      z-index: 1; 
+  }
+  
+  .popup-message::before {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      border-width: 8px;
+      border-style: solid;
+      border-color: #525152 transparent transparent transparent;
+      transform: translateX(-50%);
+  }
+  
+  .icon-container:hover .popup-message {
+      display: block;
+  }
