@@ -13,7 +13,7 @@ export default function CreateProduct(){
   const {supplier, OnGetSupplier} = useSupplierStore()
   const [error, setError] = useState('');
   React.useEffect(() => {
-    OnGetSupplier();
+    OnGetSupplier("");
   }, []);
 
  const [showModal, setShowModal] = useState(false);
@@ -46,14 +46,14 @@ export default function CreateProduct(){
 
   const handleSubmit = async ()=>{
     
-      if( !product  ){
-        await OnCreateProduct(product)
+      if(product.name.trim()  == '' || product.description.trim() == '' || product.price <=0 || product.stock <= 0 || product.supplierId <=0 ){
         
-     
-      }else{
         setError('Revise que no queden campos vacios');
   
         console.log("nel perro")
+     
+      }else{
+        await OnCreateProduct(product)
        // setShowModal(true);
       }
      
