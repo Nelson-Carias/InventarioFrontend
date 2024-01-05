@@ -7,7 +7,6 @@ import UpdateSale from "./UpdateSale";
 import { FaTrash } from "react-icons/fa";
 
 
-
 export default function TableSale() {
   const {sale, OnGetSale, OnDeleteSale} = useSaleStore();
   const [saleToDelete, setSaleToDelete] = useState<{id: number; saleTotal: number, saleCustomerId:number} | null>(null)

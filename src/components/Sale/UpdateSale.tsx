@@ -4,6 +4,7 @@ import { FaRegEdit } from "react-icons/fa";
 import useCustomerStore from '../../store/customer.store';
 
 
+
 const UpdateSale = ({id, newSaleTotal, newSaleCustomerId,}: {id: number, newSaleTotal: number, newSaleCustomerId:number}) => {
   //   const [showModal, setShowModal] = useState(false);
   //   const [newSaleTotal, setNewSaleTotal] = useState(saleTotal);
@@ -58,14 +59,14 @@ const UpdateSale = ({id, newSaleTotal, newSaleCustomerId,}: {id: number, newSale
   //   }
   const {customer, OnGetCustomer} = useCustomerStore();
   React.useEffect(() => {
-      OnGetCustomer();
+      OnGetCustomer("");
   }, [])
 
   const {OnUpdateSale} = useSaleStore();
   const [newTotal, setNewTotal] = useState(newSaleTotal);
   const [newCustomerId, setNewCustomerId] = useState(newSaleCustomerId);
   const [showModal, setShowModal] = useState(false);
-
+const [error, setError] = useState('');
   const openModal = () => {
       setShowModal(true);
       
@@ -91,16 +92,17 @@ const UpdateSale = ({id, newSaleTotal, newSaleCustomerId,}: {id: number, newSale
   }
 
   const handleSubmit = async () => {
-    if (newTotal != null){
+    if (newTotal >0  && newCustomerId != null ){
         const updateSale = {
             id: id,
             total: newTotal,
             customerId: newCustomerId
            
         }
-
         await OnUpdateSale(id, updateSale);
         closeModal();
+    }else{
+      setError('Revise que no hayan campos vacios')
     }
 };
 
@@ -142,6 +144,7 @@ const UpdateSale = ({id, newSaleTotal, newSaleCustomerId,}: {id: number, newSale
                       Cancelar
                     </button>
                   </div>
+                  {error && <p style={{ color: 'red' }}>{error}</p>}
                 </form>
               </div>
             </div>

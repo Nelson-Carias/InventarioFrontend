@@ -13,7 +13,11 @@ export const get_sale = async () => {
 }
 
 export const create_sale = async (sale: ICreateSale) => {
-    const response = await axios.post(`${API_URL}/sale`, sale)
+    const response = await axios.post(`${API_URL}/sale`, sale,{
+        headers:{
+            Authorization: "Bearer " + GetToken()
+        }
+    })
     return response.data;
 }
 export const update_sale = async (id: number, sale: IUpdateSale) => {
