@@ -180,7 +180,7 @@ export default function CreateSaleDetail() {
                   {products &&
                     products.map((products) => (
                       <option key={products.id} value={products.id}>
-                        {products.id}
+                        {products.name}
                       </option>
                     ))}
                 </select>

@@ -8,11 +8,9 @@ TABLE PROVEEDORES
 todo bien solo disenio le falta
 
 
-TABLE ROLES
-No guarda
 
 TABLE PRODUCTS
-error al dar click en editar
+le falta buscador
 se cierra despues de la validacion de campos vacios
 
 
@@ -21,13 +19,12 @@ todo bien solo disenio le falta
 
 
 TABLE VENTAS
-error al guardar una venta vacia
+se cierra automaticamente
 falta buscador 
 falta disenio
 
 
 DETALLE DE VENTA
 faltan validaciones
-que en lugar del id del producto muestre el nombre
 falta buscador
 falta disenio
