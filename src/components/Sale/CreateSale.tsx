@@ -103,9 +103,15 @@ const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectEle
 
 const handleSubmit = async () => {
   try {
-   
-      await OnCreateSale(sale)
-      closeModal();
+   if(sale.total <= 0 && sale.customerId <=0){
+    setError('revise que no queden campos vacios')
+    console.log('no null fields')
+   }else{
+    await OnCreateSale(sale)
+    closeModal();
+   }
+     
+      
    
       
   } catch (error) {

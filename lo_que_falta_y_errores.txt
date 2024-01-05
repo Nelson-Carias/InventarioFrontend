@@ -1,0 +1,33 @@
+TABLA USUARIO
+error al guardar un usuario vacio
+error al editar (no trae los valores a los campos)
+faltan validaciones
+
+
+TABLE PROVEEDORES
+todo bien solo disenio le falta
+
+
+TABLE ROLES
+No guarda
+
+TABLE PRODUCTS
+error al dar click en editar
+se cierra despues de la validacion de campos vacios
+
+
+TABLE CLIENTE
+todo bien solo disenio le falta
+
+
+TABLE VENTAS
+error al guardar una venta vacia
+falta buscador 
+falta disenio
+
+
+DETALLE DE VENTA
+faltan validaciones
+que en lugar del id del producto muestre el nombre
+falta buscador
+falta disenio

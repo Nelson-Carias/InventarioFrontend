@@ -22,7 +22,7 @@ export default function TableUser() {
   const ConfirmDelete = () => {
     if (userToDelete) {
       OnDeleteUser(userToDelete.id);
-      alert(`Se ha eliminado el rol`)
+      alert(`Se ha eliminado el Usuario`)
       setUserToDelete(null);
     }
   }
@@ -78,7 +78,7 @@ export default function TableUser() {
                   
                   <div className="flex items-center justify-center space-x-5">
                     <UpdateUser id={user.id} newNameUser={user.name} newLastNameUser={user.lastName} newEmailUser={user.email} newRolId={user.rolId}></UpdateUser>
-                    <button onClick={() => handleDelete(user.id, user.email)} className="text-red-500" >
+                    <button onClick={() => handleDelete(user.id, user.name)} className="text-red-500" >
                        <FaTrash size={24}></FaTrash>
                     </button>
                     
