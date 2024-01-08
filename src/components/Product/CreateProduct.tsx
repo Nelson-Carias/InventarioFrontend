@@ -6,7 +6,8 @@ import { ICreateProduct,  } from '../../types/product.types';
 // import { OnGetProducts } from '../store/product.store';
 
 import { FaPlus } from 'react-icons/fa';
-import useSupplierStore from '../../store/supplier.store';
+//import useSupplierStore from '../../store/supplier.store';
+import { useSupplierStore } from '../../store/supplier.store';
 
 
 export default function CreateProduct(){

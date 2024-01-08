@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useProductStore from "../../store/product.store";
-import useSupplierStore from "../../store/supplier.store";
+import {useSupplierStore} from "../../store/supplier.store";
 import { FaRegEdit } from "react-icons/fa";
 
 const UpdateProduct = ({id, newNameProduct, newDescriptionProduct, newPriceProduct, newStockProduct, newSupplierProduct} : {id: number, newNameProduct:string, newDescriptionProduct: string, newPriceProduct: number, newStockProduct: number, newSupplierProduct: number}) =>{
