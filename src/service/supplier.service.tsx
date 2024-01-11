@@ -29,7 +29,7 @@ export const get_supplier = async (page = 1, limit = 5, name = "") => {
   
 
 export const get_suppliers_list = async () => {
-    return await axios.get<IGetSuppliersPaginated>(`${API_URL}/suppliers`, {
+    return await axios.get<IGetSuppliersPaginated>(`${API_URL}/supplier`, {
       headers:{
           Authorization: "Bearer " + GetToken()
       }

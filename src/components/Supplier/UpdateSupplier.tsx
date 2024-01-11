@@ -19,7 +19,6 @@ interface UpdateSupplierProps {
 
 const UpdateSupplier: React.FC<UpdateSupplierProps> = ({ supplier }) => {
   const [showModal, setShowModal] = useState(false);
-
   const statusOfSupplier = useSupplierStore();
   const resetFormik = () => {
     formik.resetForm();

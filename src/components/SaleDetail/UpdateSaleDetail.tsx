@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import useSaleDetailStore from "../../store/saleDetail.store";
 import { FaRegEdit } from "react-icons/fa";
 import useSaleStore from "../../store/sale.store";
-import useProductStore from "../../store/product.store";
+import {useProductStore} from "../../store/product.store";
 
 const UpdateSaleDetail = ({
   id,

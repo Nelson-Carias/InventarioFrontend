@@ -1,3 +1,5 @@
+import { IPagination } from "./global.types";
+
 export interface IGetProducts{
     id: number
     supplierId: number
@@ -13,6 +15,10 @@ export interface IGetProducts{
         state: boolean
     }
 }
+export interface IGetProduct {
+    product: IGetProducts[];
+    ok: boolean;
+  }
 
 export interface ICreateProduct{
     supplierId: number
@@ -23,10 +29,21 @@ export interface ICreateProduct{
 }
 
 export interface IUpdateProduct{
-    id: number
+    
     name: string
     description: string
     price: number
     stock: number
     supplierId: number
+}
+export interface IGetSuppliersResponse extends IBasicResponse{
+    //supplier igual que la ruta index de la api   
+    product: IGetProducts[]
+}
+export interface IBasicResponse {
+    ok: true
+    status : number
+}
+export interface IGetProductsPaginated extends IPagination {
+    product : IGetProducts[]
 }

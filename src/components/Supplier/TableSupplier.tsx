@@ -26,7 +26,7 @@ export default function TableSupplier() {
     const ConfirmDelete = () => {
       if (supplierToDelete) {
         OnDeleteSupplier(supplierToDelete.id);
-        alert(`Se ha eliminado el rol`);
+        alert(`Se ha eliminado el Proveedor`);
         setRoleToDelete(null);
       }
     };

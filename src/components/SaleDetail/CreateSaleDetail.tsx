@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import useSaleDetailStore from "../../store/saleDetail.store";
 import { FaPlus } from "react-icons/fa";
 import useSaleStore from "../../store/sale.store";
-import useProductStore from "../../store/product.store";
+import {useProductStore} from "../../store/product.store";
 
 import { ICreateSaleDetail } from "../../types/saleDetail.types";
 

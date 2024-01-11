@@ -148,7 +148,7 @@ const CreateSupplier = ({ onSupplierCreated }: SupplierFormProps) => {
 
 
 
-<div className="mt-20">
+              <div className="mt-20">
               <div className="flex justify-center">
                 <button
                   type="submit"
