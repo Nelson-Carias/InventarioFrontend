@@ -15,10 +15,10 @@ export interface IGetProducts{
         state: boolean
     }
 }
-export interface IGetProduct {
-    product: IGetProducts[];
-    ok: boolean;
-  }
+// export interface IGetProduct {
+//     product: IGetProducts[];
+//     ok: boolean;
+//   }
 
 export interface ICreateProduct{
     supplierId: number

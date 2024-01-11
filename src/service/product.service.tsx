@@ -6,20 +6,13 @@ import { GetToken } from '../utils/local_data'
 
 
 export const get_product = async (page = 1, limit = 5, name = "") => {
-
- 
     return axios.get<IGetProductsPaginated>(
       `${API_URL}/product?page=${page}&limit=${limit}&name=${name}`, {
           headers:{
               Authorization: "Bearer " + GetToken()
           }
       }
-    );
-  
-
-
-    
-    
+    ); 
   };
   export const create_product = async (productStatus: ICreateProduct) => {
     return axios.post<IGetProductsPaginated>(`${API_URL}/product`, productStatus, {

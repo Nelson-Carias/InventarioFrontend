@@ -1,7 +1,7 @@
 import { Routes, Route, BrowserRouter, Outlet, Navigate } from "react-router-dom";
 import HomeView from "../views/HomeView"
 import SupplierView from "../views/SupplierView";
-import CustomerPage from "../components/Customer/TableCostumer"
+import CustomerView from "../views/CustomerView";
 
 import ProductView from "../views/ProductView"
 
@@ -25,7 +25,7 @@ function RolRoutes(){
                 <Route path="/rol" element={<RolView></RolView>}></Route>
                 <Route path="/home" element={<HomeView></HomeView>}></Route>
                 <Route path="/supplier" element={<SupplierView></SupplierView>}></Route>
-                <Route path="/customer" element={<CustomerPage></CustomerPage>}></Route>
+                <Route path="/customer" element={<CustomerView></CustomerView>}></Route>
                 <Route path="/product" element={<ProductView></ProductView>}></Route>
                 <Route path="/user" element={<UserView></UserView>}></Route>
                 <Route path="/sale" element={<SalePage></SalePage>}></Route>

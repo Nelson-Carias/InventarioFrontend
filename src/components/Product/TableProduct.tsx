@@ -21,9 +21,7 @@ export default function TableProduct() {
   const handleDelete = (id: number, productName: string) => {
     setProductToDelete({ id, productName });
   };
-  const recargar = ()=>{
-    location.reload();
-  }
+ 
   const ConfirmDelete = () => {
     if (productToDelete) {
       OnDeleteProduct(productToDelete.id);
@@ -33,9 +31,7 @@ export default function TableProduct() {
   };
 
   const handleSearch = (name: string) => {
-      if(name===""){
-        recargar();
-      }
+   
       OnGetProduct(1, 5, name);
   };
 

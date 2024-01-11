@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useSaleStore from "../../store/sale.store";
 import { FaRegEdit } from "react-icons/fa";
-import useCustomerStore from '../../store/customer.store';
+import {useCustomerStore} from '../../store/customer.store';
 
 
 
